@@ -18,7 +18,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.google.samples.dataprivacy"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -52,9 +51,6 @@ dependencies {
     // Dependencies for local unit tests
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
-    testImplementation "org.powermock:powermock-module-junit4:$rootProject.ext.powerMockito"
-    testImplementation "org.powermock:powermock-api-mockito:$rootProject.ext.powerMockito"
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
 
 }
