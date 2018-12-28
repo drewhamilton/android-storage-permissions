@@ -34,21 +34,34 @@
         android:fullBackupContent="@xml/backup_descriptor"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <!-- Add provider definition here. -->
-
         <activity android:name=".page.images.ImagesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".page.viewimage.ImageViewerActivity"
             android:label="@string/title_activity_image_viewer"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".page.importimage.ImageImportActivity"
             android:label="@string/import_image" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.google.samples.dataprivacy.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
+
     </application>
 
 </manifest>
