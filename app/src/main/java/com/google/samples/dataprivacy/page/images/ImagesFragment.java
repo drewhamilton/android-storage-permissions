@@ -64,9 +64,9 @@ public class ImagesFragment extends Fragment implements ImagesContract.View,
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View layout = inflater.inflate(R.layout.fragment_images, null);
+        View layout = inflater.inflate(R.layout.fragment_images, container, false);
         layout.findViewById(R.id.fab_camera).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class ImagesFragment extends Fragment implements ImagesContract.View,
 
         setHasOptionsMenu(true);
 
-        mRecyclerView = (RecyclerView) layout.findViewById(R.id.recycler_view);
+        mRecyclerView = layout.findViewById(R.id.recycler_view);
         mRecyclerView.setAdapter(mImagesAdapter);
         mRecyclerView.setHasFixedSize(true);
         mImagesAdapter.setOnImageClickListener(new ImagesAdapter.OnImageItemClickListener() {
@@ -86,7 +86,7 @@ public class ImagesFragment extends Fragment implements ImagesContract.View,
             }
         });
 
-        mCoordinatorLayout = (CoordinatorLayout) layout.findViewById(R.id.images_coordinator_layout);
+        mCoordinatorLayout = layout.findViewById(R.id.images_coordinator_layout);
         mEmptyView = layout.findViewById(R.id.empty_view);
 
         return layout;

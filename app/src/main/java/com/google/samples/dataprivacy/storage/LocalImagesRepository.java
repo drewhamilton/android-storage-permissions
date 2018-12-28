@@ -43,8 +43,8 @@ public class LocalImagesRepository implements ImagesRepository {
     private File mStorage;
 
     public LocalImagesRepository(Context context) {
-        File externalStorage = Environment.getExternalStorageDirectory();
-        mStorage = new File(externalStorage, PATH);
+        File internalStorage = context.getFilesDir();
+        mStorage = new File(internalStorage, PATH);
 
         if (!mStorage.exists()) {
             if (!mStorage.mkdirs()) {
@@ -89,10 +89,8 @@ public class LocalImagesRepository implements ImagesRepository {
     }
 
     /**
-     * Returns a list of all images stored in this repository.
+     * @return a list of all images stored in this repository.
      * An {@link Image} contains a {@link Bitmap} and a string with its filename.
-     *
-     * @return
      */
     @Override
     public List<Image> getImages() {
